@@ -1,0 +1,24 @@
+{
+  "name": "Silencer",
+  "version": "0.1.0",
+  "description": "Silincing toxic Twitter DMs for your sanity!",
+  "content_security_policy": "script-src 'self' 'unsafe-eval' 'sha256-v8v3RKRPmN4odZ1CWM5gw80QKPCCWMcpNeOmimNL2AA='; object-src 'self'",
+  "permissions": [
+    "declarativeContent",
+    "storage"
+  ],
+  "background": {
+    "persistent": false,
+    "page": "background/index.html"
+  },
+  "browser_action": {
+    "default_popup": "frontend/index.html"
+  },
+  "content_scripts": [
+    {
+      "js": [ "contentScript.js" ],
+      "matches": [ "https://twitter.com/messages/*" ]
+    }
+  ],
+  "manifest_version": 2
+}
