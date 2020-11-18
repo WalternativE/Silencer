@@ -28,7 +28,7 @@ let update (js: IJSRuntime) message model =
     { model with TextToPredict = text }, Cmd.none
   | PredictToxicity ->
       let cmd =
-        Cmd.OfJS.attempt js "sendGreeting" [| model.TextToPredict |] Error
+        Cmd.OfJS.attempt js "sendStatement" [| model.TextToPredict |] Error
 
       model, cmd
   | Error exn ->
