@@ -52,13 +52,14 @@ I used the [Cleaned Toxic Comments dataset](https://www.kaggle.com/fizzbuzz/clea
 
 ## Known Limitations
 
-- You have to refresh the browser in the DM or navigate directly using the URL
-    + This problem is solvable using different listeners within the content script
+- ~~You have to refresh the browser in the DM or navigate directly using the URL~~
+    + ~~This problem is solvable using different listeners within the content script~~
 - Loads of processing done when moving between DM threads or scrolling fast
     + I'd need to debounce the events here before I send them over to `ML.NET`
-- Observer stays observing when the DM threads are left
-    + Could be resolved by listening to PWA typical navigation events. Similar to the first known limitation in this list. I should generally clean up my observers.
+- ~~Observer stays observing when the DM threads are left~~
+    + ~~Could be resolved by listening to PWA typical navigation events. Similar to the first known limitation in this list. I should generally clean up my observers.~~
 - Only works reliably in Brave
     + This is due to the way the popup UI, the background Bolero app and the content script are communicating. It is programmed for the same spec but every Chromium based Browser has its own quirks. Should be resolvable for all major Browsers though.
+    + Bug sometimes also appears in Brave but rather seldomly
 - Initial load is very slow
     + Currently the `ML.NET` model is loaded when the background Bolero application initializes. This is unfortunately blocking (within the context of the extension). Currently I would not be aware of a way to improve this.
